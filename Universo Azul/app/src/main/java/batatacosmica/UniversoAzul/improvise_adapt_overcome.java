@@ -34,7 +34,11 @@ public class improvise_adapt_overcome extends RecyclerView.Adapter<aaaaahcaraios
         if((thread != null) && (thread.size() > 0))
         {
             ParentsBoard parents = thread.get(position);
-            aaaaahcaraiosegura.tvnome.setText(ParentsBoard.);
+            aaaaahcaraiosegura.tvnome.setText(DbHelper.Username);
+            aaaaahcaraiosegura.tvtitle.setText(DbHelper.Titulo);
+            aaaaahcaraiosegura.tvcomment.setText(DbHelper.ComentarioThread);
+            aaaaahcaraiosegura.tvdata.setText(DbHelper.ThreadTime);
+            aaaaahcaraiosegura.iviamgem.setImage(DbHelper.ThreadImagem);
         }
 
     }

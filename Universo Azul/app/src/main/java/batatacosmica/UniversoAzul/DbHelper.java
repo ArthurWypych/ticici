@@ -29,23 +29,23 @@ public class DbHelper extends SQLiteOpenHelper {
     public static final String Qtd_Original_Posts = "Qtd_Original_Posts";
 //<!------------------------------------------------------------
 
-    private static final String ThreadTable = "Threads";
-    private static final String Cod_Thread = "Cod_Thread";
-    private static final String Titulo = "Titulo";
-    private static final String ComentarioThread = "Comentario";
-    private static final String Tipo_Thread = "Tipo_Thread";
-    private static final String ThreadTime = "Time";
-    private static final String Cod_UserThreadFk = "Cod_User";
-    private static final String ThreadImagem = "Imagem";
+    public static final String ThreadTable = "Threads";
+    public static final String Cod_Thread = "Cod_Thread";
+    public static final String Titulo = "Titulo";
+    public static final String ComentarioThread = "Comentario";
+    public static final String Tipo_Thread = "Tipo_Thread";
+    public static final String ThreadTime = "Time";
+    public static final String Cod_UserThreadFk = "Cod_User";
+    public static final String ThreadImagem = "Imagem";
 //<!------------------------------------------------------------
 
-    private static final String PostTable = "Posts";
-    private static final String Cod_Post = "Cod_Post";
-    private static final String ComentarioPost = "Comentario";
-    private static final String PostTime = "Time";
-    private static final String Cod_UserPostFk = "Cod_User";
-    private static final String PostImagem = "Imagem";
-    private static final String Cod_ThreadPostFk = "Cod_Thread";
+    public static final String PostTable = "Posts";
+    public static final String Cod_Post = "Cod_Post";
+    public static final String ComentarioPost = "Comentario";
+    public static final String PostTime = "Time";
+    public static final String Cod_UserPostFk = "Cod_User";
+    public static final String PostImagem = "Imagem";
+    public static final String Cod_ThreadPostFk = "Cod_Thread";
 //<!------------------------------------------------------------
 
 
