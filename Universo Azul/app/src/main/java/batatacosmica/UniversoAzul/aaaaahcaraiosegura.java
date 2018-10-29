@@ -1,7 +1,9 @@
 package batatacosmica.UniversoAzul;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,8 +16,11 @@ public class aaaaahcaraiosegura extends RecyclerView.ViewHolder {
     public TextView tvdata;
     public TextView tvcomment;
     public ImageView iviamgem;
+    public Cursor cursor;
 
-    public aaaaahcaraiosegura (@NonNull final View itemView, final Context context) {
+
+
+    public aaaaahcaraiosegura (@NonNull final View itemView, final Context context, @Nullable Cursor cuck) {
         super(itemView);
 
         tvtitle = (TextView) itemView.findViewById(R.id.textView26);
@@ -23,7 +28,13 @@ public class aaaaahcaraiosegura extends RecyclerView.ViewHolder {
         tvdata = (TextView) itemView.findViewById(R.id.textView25);
         tvcomment = (TextView) itemView.findViewById(R.id.textView24);
         iviamgem = (ImageView) itemView.findViewById(R.id.imageView11);
+        cursor=cuck;
+
+
     }
+
+
+
 
 
 

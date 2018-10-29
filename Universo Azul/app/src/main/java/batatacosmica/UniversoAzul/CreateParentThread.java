@@ -32,6 +32,8 @@ public class CreateParentThread extends AppCompatActivity {
     DbHelper dbHelper=new DbHelper(this);
     SQLiteDatabase db;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
