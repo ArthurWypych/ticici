@@ -3,6 +3,7 @@ package batatacosmica.UniversoAzul;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -48,6 +49,7 @@ public class ParentsBoard extends AppCompatActivity {
         btnNavigator=findViewById(R.id.buttonA);
         newThread=findViewById(R.id.floatingActionButton2);
         liil=findViewById(R.id.ParentsLista);
+        ctlRecycleView=findViewById(R.id.consta);
 
         LayoutInflater factory = LayoutInflater.from(this);
         View viadinhogay = factory.inflate(R.layout.item_viado, null);
@@ -58,8 +60,10 @@ public class ParentsBoard extends AppCompatActivity {
 
         cursor=db.rawQuery("SELECT Titulo,Comentario,Time,Imagem FROM Threads WHERE Tipo_Thread='Parents' ",null);
 
-        improvise_adapt_overcome BearGrylls=new improvise_adapt_overcome((List<ParentsBoard>) liil);
         aaaaahcaraiosegura SIGURA = new aaaaahcaraiosegura(viadinhogay,this,cursor);
+
+        List<ParentsBoard> dadinho =(List) SIGURA.cursor;
+        improvise_adapt_overcome BearGrylls=new improvise_adapt_overcome(dadinho);
         liil.setAdapter(BearGrylls);
 
         for (int i=1;i>=cursor.getCount();i++){
@@ -85,5 +89,17 @@ public class ParentsBoard extends AppCompatActivity {
 
         });
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        List<ParentsBoard> dadinho =(List) SIGURA.cursor;
+        improvise_adapt_overcome BearGrylls=new improvise_adapt_overcome(dadinho);
+        liil.setAdapter(BearGrylls);
+        for (int i=1;i>=cursor.getCount();i++){
+            BearGrylls.onBindViewHolder(SIGURA,i);
+        }
     }
 }
