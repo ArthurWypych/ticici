@@ -3,9 +3,11 @@ package batatacosmica.UniversoAzul;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,9 +27,9 @@ public class ParentsBoard extends AppCompatActivity {
     Intent intent;
     FloatingActionButton newThread;
     RecyclerView liil;
+    ConstraintLayout ctlRecycleView;
 
-    LayoutInflater factory = LayoutInflater.from(this);
-    View viadinhogay = factory.inflate(R.layout.item_viado, null);
+
 
 
 
@@ -47,13 +49,20 @@ public class ParentsBoard extends AppCompatActivity {
         newThread=findViewById(R.id.floatingActionButton2);
         liil=findViewById(R.id.ParentsLista);
 
+        LayoutInflater factory = LayoutInflater.from(this);
+        View viadinhogay = factory.inflate(R.layout.item_viado, null);
+
+        LinearLayoutManager linearLayoutManager= new LinearLayoutManager(this);
+        liil.setLayoutManager(linearLayoutManager);
+
 
         cursor=db.rawQuery("SELECT Titulo,Comentario,Time,Imagem FROM Threads WHERE Tipo_Thread='Parents' ",null);
 
         improvise_adapt_overcome BearGrylls=new improvise_adapt_overcome((List<ParentsBoard>) liil);
         aaaaahcaraiosegura SIGURA = new aaaaahcaraiosegura(viadinhogay,this,cursor);
+        liil.setAdapter(BearGrylls);
 
-        for (int i=0;i>=cursor.getCount();i++){
+        for (int i=1;i>=cursor.getCount();i++){
             BearGrylls.onBindViewHolder(SIGURA,i);
         }
 
