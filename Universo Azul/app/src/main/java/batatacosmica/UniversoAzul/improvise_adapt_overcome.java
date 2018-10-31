@@ -17,10 +17,11 @@ import java.util.List;
 
 public class improvise_adapt_overcome extends RecyclerView.Adapter<aaaaahcaraiosegura>{
 
-    private List<ParentsBoard> thread;
+    //private List<ParentsBoard> thread;
+    Cursor cursor;
 
-    public improvise_adapt_overcome(List<ParentsBoard> thread){
-        this.thread = thread;
+    public improvise_adapt_overcome(Cursor cursor){
+        this.cursor = cursor;
     }
 
 
@@ -29,22 +30,24 @@ public class improvise_adapt_overcome extends RecyclerView.Adapter<aaaaahcaraios
 
     @NonNull
     @Override
+
     public aaaaahcaraiosegura onCreateViewHolder(@NonNull ViewGroup ViiV, int i){
         LayoutInflater layoutInflater=LayoutInflater.from(ViiV.getContext());
         View view=layoutInflater.inflate(R.layout.item_viado,ViiV,false);
-        aaaaahcaraiosegura aaaaahcaraiosegura = new aaaaahcaraiosegura(view,ViiV.getContext(),null);
+        aaaaahcaraiosegura siguradero = new aaaaahcaraiosegura(view,ViiV.getContext());
 
-        return aaaaahcaraiosegura;
+        return siguradero;
+
     }
 
     @Override
     public void onBindViewHolder (@NonNull aaaaahcaraiosegura aaaaahcaraiosegura, final int position){
 
 
-        if((thread != null) && (thread.size() > 0))
+        if((cursor != null) && (cursor.getCount() > 0))
         {
-            ParentsBoard parents = thread.get(position);
-            Cursor cursor= aaaaahcaraiosegura.cursor;
+            //ParentsBoard parents = cursor.moveToPosition(position);
+            //Cursor cursor= aaaaahcaraiosegura.cursor;
             String titulo, comment, data;
             byte[] imagem;
             Bitmap imagemReal;

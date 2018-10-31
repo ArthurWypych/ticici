@@ -60,10 +60,10 @@ public class ParentsBoard extends AppCompatActivity {
 
         cursor=db.rawQuery("SELECT Titulo,Comentario,Time,Imagem FROM Threads WHERE Tipo_Thread='Parents' ",null);
 
-        aaaaahcaraiosegura SIGURA = new aaaaahcaraiosegura(viadinhogay,this,cursor);
+        aaaaahcaraiosegura SIGURA = new aaaaahcaraiosegura(viadinhogay);
 
-        List<ParentsBoard> dadinho =(List) SIGURA.cursor;
-        improvise_adapt_overcome BearGrylls=new improvise_adapt_overcome(dadinho);
+        //List<ParentsBoard> dadinho =(List) SIGURA.cursor;
+        improvise_adapt_overcome BearGrylls=new improvise_adapt_overcome(cursor);
         liil.setAdapter(BearGrylls);
 
         for (int i=1;i>=cursor.getCount();i++){
@@ -95,11 +95,11 @@ public class ParentsBoard extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        List<ParentsBoard> dadinho =(List) SIGURA.cursor;
-        improvise_adapt_overcome BearGrylls=new improvise_adapt_overcome(dadinho);
-        liil.setAdapter(BearGrylls);
-        for (int i=1;i>=cursor.getCount();i++){
-            BearGrylls.onBindViewHolder(SIGURA,i);
-        }
+        //List<ParentsBoard> dadinho =(List) SIGURA.cursor;
+        //improvise_adapt_overcome BearGrylls=new improvise_adapt_overcome(dadinho);
+        //liil.setAdapter(BearGrylls);
+        //for (int i=1;i>=cursor.getCount();i++){
+            //BearGrylls.onBindViewHolder(SIGURA,i);
+        //}
     }
 }
