@@ -27,8 +27,6 @@ public class ParentsBoard extends AppCompatActivity {
     Button btnConfig,btnNavigator;
     Intent intent;
     FloatingActionButton newThread;
-    RecyclerView liil;
-    ConstraintLayout ctlRecycleView;
 
 
 
@@ -48,27 +46,12 @@ public class ParentsBoard extends AppCompatActivity {
         btnConfig=findViewById(R.id.buttonB);
         btnNavigator=findViewById(R.id.buttonA);
         newThread=findViewById(R.id.floatingActionButton2);
-        liil=findViewById(R.id.ParentsLista);
-        ctlRecycleView=findViewById(R.id.consta);
 
-        LayoutInflater factory = LayoutInflater.from(this);
-        View viadinhogay = factory.inflate(R.layout.item_viado, null);
 
-        LinearLayoutManager linearLayoutManager= new LinearLayoutManager(this);
-        liil.setLayoutManager(linearLayoutManager);
 
 
         cursor=db.rawQuery("SELECT Titulo,Comentario,Time,Imagem FROM Threads WHERE Tipo_Thread='Parents' ",null);
 
-        aaaaahcaraiosegura SIGURA = new aaaaahcaraiosegura(viadinhogay);
-
-        //List<ParentsBoard> dadinho =(List) SIGURA.cursor;
-        improvise_adapt_overcome BearGrylls=new improvise_adapt_overcome(cursor);
-        liil.setAdapter(BearGrylls);
-
-        for (int i=1;i>=cursor.getCount();i++){
-            BearGrylls.onBindViewHolder(SIGURA,i);
-        }
 
 
 
@@ -90,16 +73,4 @@ public class ParentsBoard extends AppCompatActivity {
         });
 
     }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        //List<ParentsBoard> dadinho =(List) SIGURA.cursor;
-        //improvise_adapt_overcome BearGrylls=new improvise_adapt_overcome(dadinho);
-        //liil.setAdapter(BearGrylls);
-        //for (int i=1;i>=cursor.getCount();i++){
-            //BearGrylls.onBindViewHolder(SIGURA,i);
-        //}
     }
-}
