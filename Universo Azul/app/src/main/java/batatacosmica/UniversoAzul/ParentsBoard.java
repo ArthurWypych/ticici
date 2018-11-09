@@ -56,25 +56,28 @@ public class ParentsBoard extends AppCompatActivity implements intermunicipal{
         db=mDbHelper.getWritableDatabase();
 
 
-        cursor=db.rawQuery("SELECT Titulo,Comentario,Time,Imagem FROM Threads WHERE Tipo_Thread='Parents' ",null);
+        cursor=db.rawQuery("SELECT Cod_Thread,Titulo,Comentario,Time,Imagem FROM Threads WHERE Tipo_Thread='Parents' ",null);
         cursor.moveToFirst();
         setButtons();
         listenerButtons();
         model viadinho = new model();
 
-        for(int i=1; i>=cursor.getCount();i++){
-            viadinho.setTitulo(CurrentUser.Username);
-            viadinho.setTitulo(cursor.getString(cursor.getColumnIndex("Titulo")));
-            viadinho.setComment(cursor.getString(cursor.getColumnIndex("Comentario")));
-            viadinho.setData(cursor.getString(cursor.getColumnIndex("Time")));
-            byte[] imagem=cursor.getBlob(cursor.getColumnIndex("Imagem"));
-            Bitmap ImagemReal=BitmapFactory.decodeByteArray(imagem,0,imagem.length);
-            viadinho.setImage(ImagemReal);
+        if(cursor != null && cursor.moveToFirst()) {
 
-            listamodelo.add(viadinho);
-            adapter.notifyDataSetChanged();
+            for (int i = 1; i >= cursor.getCount(); i++) {
+                viadinho.setTitulo(CurrentUser.Username);
+                viadinho.setTitulo(cursor.getString(cursor.getColumnIndex("Titulo")));
+                viadinho.setComment(cursor.getString(cursor.getColumnIndex("Comentario")));
+                viadinho.setData(cursor.getString(cursor.getColumnIndex("Time")));
+                byte[] imagem = cursor.getBlob(cursor.getColumnIndex("Imagem"));
+                Bitmap ImagemReal = BitmapFactory.decodeByteArray(imagem, 0, imagem.length);
+                viadinho.setImage(ImagemReal);
 
-            cursor.moveToNext();
+                listamodelo.add(viadinho);
+                adapter.notifyDataSetChanged();
+
+                cursor.moveToNext();
+            }
         }
 
 

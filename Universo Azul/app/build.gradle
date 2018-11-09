@@ -18,10 +18,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    productFlavors {
     }
 }
 
@@ -38,5 +39,4 @@ dependencies {
     implementation files('libs/mysql-connector-java-8.0.11/mysql-connector-java-8.0.11.jar')
     implementation files('libs/com.google.protobuf-2.4.0.jar/com.google.protobuf-2.4.0.jar')
     implementation 'com.android.support:recyclerview-v7:28.0.0'
-
 }
