@@ -9,4 +9,5 @@
     <color name="Transparente">#00000000</color>
     <color name="AzulBostaSecundario">#02006c</color>
     <color name="PretoFudido">#000000</color>
+    <color name="AzulBostaTerciario">#1b00cc</color>
 </resources>

@@ -32,9 +32,9 @@ public class adapter extends RecyclerView.Adapter<adapter.holder> {
         model model = mList.get(i);
 
         viewHolder.Username.setText(model.getUsername());
-        viewHolder.Title.setText(model.getUsername());
-        viewHolder.Comment.setText(model.getUsername());
-        viewHolder.Data.setText(model.getUsername());
+        viewHolder.Title.setText(model.getTitulo());
+        viewHolder.Comment.setText(model.getComment());
+        viewHolder.Data.setText(model.getData());
         viewHolder.Image.setImageBitmap(model.getImage());
 
     }

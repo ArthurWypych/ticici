@@ -64,8 +64,10 @@ public class ParentsBoard extends AppCompatActivity implements intermunicipal{
 
         if(cursor != null && cursor.moveToFirst()) {
 
-            for (int i = 1; i >= cursor.getCount(); i++) {
-                viadinho.setTitulo(CurrentUser.Username);
+
+            //for (int i = 1; i >= cursor.getCount(); i++) {
+            do {
+                viadinho.setUsername(CurrentUser.Username);
                 viadinho.setTitulo(cursor.getString(cursor.getColumnIndex("Titulo")));
                 viadinho.setComment(cursor.getString(cursor.getColumnIndex("Comentario")));
                 viadinho.setData(cursor.getString(cursor.getColumnIndex("Time")));
@@ -73,12 +75,15 @@ public class ParentsBoard extends AppCompatActivity implements intermunicipal{
                 Bitmap ImagemReal = BitmapFactory.decodeByteArray(imagem, 0, imagem.length);
                 viadinho.setImage(ImagemReal);
 
+
                 listamodelo.add(viadinho);
                 adapter.notifyDataSetChanged();
 
                 cursor.moveToNext();
-            }
+            }while(cursor.moveToNext());
+            //}
         }
+
 
 
 

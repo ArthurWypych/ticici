@@ -6,43 +6,43 @@ public class model {
 
     public model(){}
 
-    String Titulo;
-    String Username;
-    String Comment;
-    String Data;
-    Integer Cod_Thread;
+    String TituloModel;
+    String UsernameModel;
+    String CommentModel;
+    String DataModel;
+    Integer Cod_ThreadModel;
     Bitmap Image;
 
     public String getTitulo() {
-        return Titulo;
+        return TituloModel;
     }
 
     public void setTitulo(String titulo) {
-        Titulo = titulo;
+        TituloModel = titulo;
     }
 
     public String getUsername() {
-        return Username;
+        return UsernameModel;
     }
 
     public void setUsername(String username) {
-        this.Username = username;
+        this.UsernameModel = username;
     }
 
     public String getComment() {
-        return Comment;
+        return CommentModel;
     }
 
     public void setComment(String comment) {
-        this.Comment = comment;
+        this.CommentModel = comment;
     }
 
     public String getData() {
-        return Data;
+        return DataModel;
     }
 
     public void setData(String data) {
-        this.Data = data;
+        this.DataModel = data;
     }
     public Bitmap getImage(){
         return Image;
@@ -52,10 +52,10 @@ public class model {
     }
 
     public Integer getCod_Thread() {
-        return Cod_Thread;
+        return Cod_ThreadModel;
     }
 
     public void setCod_Thread(Integer cod_Thread) {
-        Cod_Thread = cod_Thread;
+        this.Cod_ThreadModel = cod_Thread;
     }
 }
