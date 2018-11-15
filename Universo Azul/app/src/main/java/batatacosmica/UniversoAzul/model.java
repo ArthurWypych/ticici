@@ -6,12 +6,12 @@ public class model {
 
     public model(){}
 
-    String TituloModel;
-    String UsernameModel;
-    String CommentModel;
-    String DataModel;
-    Integer Cod_ThreadModel;
-    Bitmap Image;
+    private String TituloModel;
+    private String UsernameModel;
+    private String CommentModel;
+    private String DataModel;
+    private Integer Cod_ThreadModel;
+    private Bitmap Image;
 
     public String getTitulo() {
         return TituloModel;

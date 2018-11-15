@@ -5,4 +5,5 @@ public class CurrentUser {
     public static String Username;
     public static String Tipo_Conta;
     public static Integer QtdPosts;
+    public static Integer imageCounter=0;
 }

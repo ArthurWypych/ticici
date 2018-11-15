@@ -34,7 +34,8 @@
         <activity android:name=".ParentsBoard" />
         <activity android:name=".ProfessionalsBoard" />
         <activity android:name=".CreateParentThread" />
-        <activity android:name=".CreateProfessionalsThread"></activity>
+        <activity android:name=".CreateProfessionalsThread" />
+        <activity android:name=".InsideTheThread"></activity>
     </application>
 
 </manifest>

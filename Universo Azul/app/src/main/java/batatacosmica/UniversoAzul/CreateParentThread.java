@@ -110,6 +110,7 @@ public class CreateParentThread extends AppCompatActivity {
         }
         else {
             Toast.makeText(getBaseContext(),"Thread Criada com sucesso!",Toast.LENGTH_LONG).show();
+            CurrentUser.QtdPosts=CurrentUser.QtdPosts+1;
             Intent i=new Intent(CreateParentThread.this,ParentsBoard.class);
             startActivity(i);
 

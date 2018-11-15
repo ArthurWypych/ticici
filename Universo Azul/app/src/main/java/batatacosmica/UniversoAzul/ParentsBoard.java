@@ -25,7 +25,7 @@ import java.util.List;
 public class ParentsBoard extends AppCompatActivity implements intermunicipal{
 
     DbHelper mDbHelper;
-    Cursor cursor;
+    Cursor cursor, cursorImagem;
     SQLiteDatabase db;
 
 
@@ -50,38 +50,54 @@ public class ParentsBoard extends AppCompatActivity implements intermunicipal{
         setContentView(R.layout.activity_parents_board);
         getSupportActionBar().hide();
 
-        setRecyclerView();
+
 
         mDbHelper= new DbHelper(this);
         db=mDbHelper.getWritableDatabase();
 
 
-        cursor=db.rawQuery("SELECT Cod_Thread,Titulo,Comentario,Time,Imagem FROM Threads WHERE Tipo_Thread='Parents' ",null);
+        cursor=db.rawQuery("SELECT Cod_thread,Titulo,Comentario,Time FROM Threads WHERE Tipo_Thread='Parents' ",null);
+        cursorImagem=db.rawQuery("SELECT Imagem FROM THREADS WHERE Tipo_Thread='Parents'",null);
+        cursorImagem.moveToFirst();
         cursor.moveToFirst();
         setButtons();
         listenerButtons();
         model viadinho = new model();
+        setRecyclerView();
 
-        if(cursor != null && cursor.moveToFirst()) {
+        if(cursor != null && cursor.moveToFirst() && cursorImagem!=null && cursorImagem.moveToFirst()) {
 
 
             //for (int i = 1; i >= cursor.getCount(); i++) {
             do {
+                viadinho.setCod_Thread(cursor.getInt(cursor.getColumnIndex("Cod_Thread")));
                 viadinho.setUsername(CurrentUser.Username);
                 viadinho.setTitulo(cursor.getString(cursor.getColumnIndex("Titulo")));
                 viadinho.setComment(cursor.getString(cursor.getColumnIndex("Comentario")));
                 viadinho.setData(cursor.getString(cursor.getColumnIndex("Time")));
-                byte[] imagem = cursor.getBlob(cursor.getColumnIndex("Imagem"));
-                Bitmap ImagemReal = BitmapFactory.decodeByteArray(imagem, 0, imagem.length);
-                viadinho.setImage(ImagemReal);
+                byte[] imagem = cursorImagem.getBlob(cursorImagem.getColumnIndex("Imagem"));
+                //Bitmap ImagemReal = BitmapFactory.decodeByteArray(imagem, 0, imagem.length);
+                Bitmap[] ImagemReal=new Bitmap[10];
+                ImagemReal[CurrentUser.imageCounter] = BitmapFactory.decodeByteArray(imagem, 0, imagem.length);
+                viadinho.setImage(ImagemReal[CurrentUser.imageCounter]);
+
+
 
 
                 listamodelo.add(viadinho);
-                adapter.notifyDataSetChanged();
+                //adapter.notifyItemInserted(adapter.getItemCount());
+                //adapter.notifyDataSetChanged();
+                //listamodelo.clear();
+                CurrentUser.imageCounter++;
 
-                cursor.moveToNext();
-            }while(cursor.moveToNext());
+
+
+
+            }while(cursor.moveToNext() && cursorImagem.moveToNext());
             //}
+
+            //listamodelo.clear();
+            //setRecyclerView();
         }
 
 
@@ -97,13 +113,25 @@ public class ParentsBoard extends AppCompatActivity implements intermunicipal{
         mRecyclerView.setLayoutManager(garotogay);
 
 
-        adapter = new adapter(this, listamodelo, this);
+        adapter = new adapter(this, listamodelo, this::onCustomClick);
         mRecyclerView.setAdapter(adapter);
     }
 
     public void onCustomClick(Object object) {
         model viadinho = (model) object;
         Integer Cooc = viadinho.getCod_Thread();
+        String User=viadinho.getUsername();
+        Bitmap bitmap=viadinho.getImage();
+        Intent intent = new Intent(this,InsideTheThread.class);
+        Bundle b= new Bundle();
+        b.putInt("Cod",Cooc);
+        b.putString("User",User);
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        b.putByteArray("Imagem",byteArray);
+        intent.putExtras(b);
+        startActivity(intent);
     }
 
     public void setButtons(){
@@ -132,4 +160,4 @@ public class ParentsBoard extends AppCompatActivity implements intermunicipal{
         });
 
     }
-    }
+}

@@ -15,6 +15,7 @@ public class adapter extends RecyclerView.Adapter<adapter.holder> {
     public static intermunicipal clickRecyclerViewInterface;
     Context mctx;
     private List<model> mList;
+    Integer kekCod[]=new Integer[10];
 
     public adapter(Context ctx, List<model> list, intermunicipal clickRecyclerViewInterface) {
         this.mctx = ctx;
@@ -31,13 +32,26 @@ public class adapter extends RecyclerView.Adapter<adapter.holder> {
     public void onBindViewHolder(holder viewHolder, int i) {
         model model = mList.get(i);
 
+        kekCod[i]=model.getCod_Thread();
         viewHolder.Username.setText(model.getUsername());
         viewHolder.Title.setText(model.getTitulo());
         viewHolder.Comment.setText(model.getComment());
         viewHolder.Data.setText(model.getData());
         viewHolder.Image.setImageBitmap(model.getImage());
+        //viewHolder.bind(mList.get(i),clickRecyclerViewInterface);
 
     }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
+
 
     @Override
     public int getItemCount() {
@@ -68,6 +82,8 @@ public class adapter extends RecyclerView.Adapter<adapter.holder> {
             itemView.setOnClickListener(v ->
                     clickRecyclerViewInterface.onCustomClick(mList.get(getLayoutPosition())));
         }
+
+       // public void bind(final model item, final intermunicipal clickRecyclerViewInterface)
 
     }
 }
