@@ -90,20 +90,6 @@
         app:layout_constraintVertical_bias="0.984"
         app:srcCompat="@drawable/merda" />
 
-    <Button
-        android:id="@+id/button12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="58dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="61dp"
-        android:layout_marginBottom="15dp"
-        android:text="refresh"
-        app:layout_constraintBottom_toTopOf="@+id/textView9"
-        app:layout_constraintEnd_toStartOf="@+id/buttonB"
-        app:layout_constraintStart_toEndOf="@+id/buttonA"
-        app:layout_constraintTop_toTopOf="parent" />
-
 
 </android.support.constraint.ConstraintLayout>
 
