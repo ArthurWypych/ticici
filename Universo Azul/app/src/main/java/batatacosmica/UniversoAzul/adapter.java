@@ -38,7 +38,6 @@ public class adapter extends RecyclerView.Adapter<adapter.holder> {
         viewHolder.Comment.setText(model.getComment());
         viewHolder.Data.setText(model.getData());
         viewHolder.Image.setImageBitmap(model.getImage());
-        //viewHolder.bind(mList.get(i),clickRecyclerViewInterface);
 
     }
 
@@ -83,7 +82,6 @@ public class adapter extends RecyclerView.Adapter<adapter.holder> {
                     clickRecyclerViewInterface.onCustomClick(mList.get(getLayoutPosition())));
         }
 
-       // public void bind(final model item, final intermunicipal clickRecyclerViewInterface)
 
     }
 }

@@ -109,7 +109,7 @@ public class CreateProfessionalsThread extends AppCompatActivity {
         }
         else {
             Toast.makeText(getBaseContext(),"Thread Criada com sucesso!",Toast.LENGTH_LONG).show();
-            Intent i=new Intent(CreateProfessionalsThread.this,ParentsBoard.class);
+            Intent i=new Intent(CreateProfessionalsThread.this,ProfessionalsBoard.class);
             startActivity(i);
 
         }

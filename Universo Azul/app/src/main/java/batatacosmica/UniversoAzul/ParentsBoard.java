@@ -29,7 +29,7 @@ public class ParentsBoard extends AppCompatActivity implements intermunicipal{
     SQLiteDatabase db;
 
 
-    Button btnConfig,btnNavigator,button12;
+    Button btnConfig,btnNavigator;
     Intent intent;
     FloatingActionButton newThread;
 
@@ -37,7 +37,6 @@ public class ParentsBoard extends AppCompatActivity implements intermunicipal{
     private RecyclerView.LayoutManager garotogay;
     adapter adapter;
     private List<model> listamodelo = new ArrayList<>();
-    model viadinho = new model();
 
 
 
@@ -57,49 +56,49 @@ public class ParentsBoard extends AppCompatActivity implements intermunicipal{
         db=mDbHelper.getWritableDatabase();
 
 
-        //cursor=db.rawQuery("SELECT Cod_thread,Titulo,Comentario,Time FROM Threads WHERE Tipo_Thread='Parents' ",null);
-        //cursorImagem=db.rawQuery("SELECT Imagem FROM THREADS WHERE Tipo_Thread='Parents'",null);
-        //cursorImagem.moveToFirst();
-        //cursor.moveToFirst();
+        cursor=db.rawQuery("SELECT Cod_thread,Titulo,Comentario,Time FROM Threads WHERE Tipo_Thread='Parents' ",null);
+        cursorImagem=db.rawQuery("SELECT Imagem FROM THREADS WHERE Tipo_Thread='Parents'",null);
+        cursorImagem.moveToFirst();
+        cursor.moveToFirst();
         setButtons();
         listenerButtons();
-        //model viadinho = new model();
-        //setRecyclerView();
+        model viadinho = new model();
+        setRecyclerView();
 
-        //if(cursor != null && cursor.moveToFirst() && cursorImagem!=null && cursorImagem.moveToFirst()) {
-
-
-        //    //for (int i = 1; i >= cursor.getCount(); i++) {
-        //    do {
-        //        viadinho.setCod_Thread(cursor.getInt(cursor.getColumnIndex("Cod_Thread")));
-        //        viadinho.setUsername(CurrentUser.Username);
-        //        viadinho.setTitulo(cursor.getString(cursor.getColumnIndex("Titulo")));
-        //        viadinho.setComment(cursor.getString(cursor.getColumnIndex("Comentario")));
-        //        viadinho.setData(cursor.getString(cursor.getColumnIndex("Time")));
-        //        byte[] imagem = cursorImagem.getBlob(cursorImagem.getColumnIndex("Imagem"));
-        //        //Bitmap ImagemReal = BitmapFactory.decodeByteArray(imagem, 0, imagem.length);
-        //        Bitmap[] ImagemReal=new Bitmap[10];
-        //        ImagemReal[CurrentUser.imageCounter] = BitmapFactory.decodeByteArray(imagem, 0, imagem.length);
-        //        viadinho.setImage(ImagemReal[CurrentUser.imageCounter]);
+        if(cursor != null && cursor.moveToFirst() && cursorImagem!=null && cursorImagem.moveToFirst()) {
 
 
-
-
-        //        //listamodelo.add(viadinho);
-        //        //adapter.notifyItemInserted(adapter.getItemCount());
-        //        //adapter.notifyDataSetChanged();
-        //        //listamodelo.clear();
-        //        CurrentUser.imageCounter++;
+            //for (int i = 1; i >= cursor.getCount(); i++) {
+            do {
+                viadinho.setCod_Thread(cursor.getInt(cursor.getColumnIndex("Cod_Thread")));
+                viadinho.setUsername(CurrentUser.Username);
+                viadinho.setTitulo(cursor.getString(cursor.getColumnIndex("Titulo")));
+                viadinho.setComment(cursor.getString(cursor.getColumnIndex("Comentario")));
+                viadinho.setData(cursor.getString(cursor.getColumnIndex("Time")));
+                byte[] imagem = cursorImagem.getBlob(cursorImagem.getColumnIndex("Imagem"));
+                //Bitmap ImagemReal = BitmapFactory.decodeByteArray(imagem, 0, imagem.length);
+                Bitmap[] ImagemReal=new Bitmap[10];
+                ImagemReal[CurrentUser.imageCounter] = BitmapFactory.decodeByteArray(imagem, 0, imagem.length);
+                viadinho.setImage(ImagemReal[CurrentUser.imageCounter]);
 
 
 
 
-        //    }while(cursor.moveToNext() && cursorImagem.moveToNext());
-        //    //}
+                listamodelo.add(viadinho);
+                //adapter.notifyItemInserted(adapter.getItemCount());
+                //adapter.notifyDataSetChanged();
+                //listamodelo.clear();
+                CurrentUser.imageCounter++;
 
-        //    //listamodelo.clear();
-        //    //setRecyclerView();
-        //}
+
+
+
+            }while(cursor.moveToNext() && cursorImagem.moveToNext());
+            //}
+
+            //listamodelo.clear();
+            //setRecyclerView();
+        }
 
 
 
@@ -134,7 +133,7 @@ public class ParentsBoard extends AppCompatActivity implements intermunicipal{
         btnConfig=findViewById(R.id.buttonB);
         btnNavigator=findViewById(R.id.buttonA);
         newThread=findViewById(R.id.floatingActionButton2);
-        button12=findViewById(R.id.button12);
+        //button12=findViewById(R.id.button12);
 
     }
 
@@ -155,50 +154,50 @@ public class ParentsBoard extends AppCompatActivity implements intermunicipal{
             startActivity(intent);
 
         });
-        button12.setOnClickListener(v -> {
-            cursor=db.rawQuery("SELECT Cod_thread,Titulo,Comentario,Time FROM Threads WHERE Tipo_Thread='Parents' ",null);
-            cursorImagem=db.rawQuery("SELECT Imagem FROM THREADS WHERE Tipo_Thread='Parents'",null);
-            cursorImagem.moveToFirst();
-            cursor.moveToFirst();
+        //button12.setOnClickListener(v -> {
+          //  cursor=db.rawQuery("SELECT Cod_thread,Titulo,Comentario,Time FROM Threads WHERE Tipo_Thread='Parents' ",null);
+            //cursorImagem=db.rawQuery("SELECT Imagem FROM THREADS WHERE Tipo_Thread='Parents'",null);
+            //cursorImagem.moveToFirst();
+            //cursor.moveToFirst();
 
-            model viadinho = new model();
-            setRecyclerView();
+            //model viadinho = new model();
+            //setRecyclerView();
 
-            if(cursor != null && cursor.moveToFirst() && cursorImagem!=null && cursorImagem.moveToFirst()) {
+            //if(cursor != null && cursor.moveToFirst() && cursorImagem!=null && cursorImagem.moveToFirst()) {
 
 
                 //for (int i = 1; i >= cursor.getCount(); i++) {
-                do {
-                    viadinho.setCod_Thread(cursor.getInt(cursor.getColumnIndex("Cod_Thread")));
-                    viadinho.setUsername(CurrentUser.Username);
-                    viadinho.setTitulo(cursor.getString(cursor.getColumnIndex("Titulo")));
-                    viadinho.setComment(cursor.getString(cursor.getColumnIndex("Comentario")));
-                    viadinho.setData(cursor.getString(cursor.getColumnIndex("Time")));
-                    byte[] imagem = cursorImagem.getBlob(cursorImagem.getColumnIndex("Imagem"));
-                    //Bitmap ImagemReal = BitmapFactory.decodeByteArray(imagem, 0, imagem.length);
-                    Bitmap[] ImagemReal=new Bitmap[10];
-                    ImagemReal[CurrentUser.imageCounter] = BitmapFactory.decodeByteArray(imagem, 0, imagem.length);
-                    viadinho.setImage(ImagemReal[CurrentUser.imageCounter]);
+              //  do {
+                //    viadinho.setCod_Thread(cursor.getInt(cursor.getColumnIndex("Cod_Thread")));
+                //  viadinho.setUsername(CurrentUser.Username);
+                //    viadinho.setTitulo(cursor.getString(cursor.getColumnIndex("Titulo")));
+                //    viadinho.setComment(cursor.getString(cursor.getColumnIndex("Comentario")));
+                //    viadinho.setData(cursor.getString(cursor.getColumnIndex("Time")));
+                //    byte[] imagem = cursorImagem.getBlob(cursorImagem.getColumnIndex("Imagem"));
+                //    //Bitmap ImagemReal = BitmapFactory.decodeByteArray(imagem, 0, imagem.length);
+                //    Bitmap[] ImagemReal=new Bitmap[10];
+                //    ImagemReal[CurrentUser.imageCounter] = BitmapFactory.decodeByteArray(imagem, 0, imagem.length);
+                //    viadinho.setImage(ImagemReal[CurrentUser.imageCounter]);
 
 
 
 
-                    listamodelo.add(viadinho);
-                    adapter.notifyItemInserted(adapter.getItemCount());
+                //    listamodelo.add(viadinho);
+                //    adapter.notifyItemInserted(adapter.getItemCount());
                     //adapter.notifyDataSetChanged();
                     //listamodelo.clear();
-                    CurrentUser.imageCounter++;
+                //    CurrentUser.imageCounter++;
 
 
 
 
-                }while(cursor.moveToNext() && cursorImagem.moveToNext());
+               // }while(cursor.moveToNext() && cursorImagem.moveToNext());
                 //}
 
                 //listamodelo.clear();
                 //setRecyclerView();
-            }
-        });
+            //}
+        //});
 
     }
 }
