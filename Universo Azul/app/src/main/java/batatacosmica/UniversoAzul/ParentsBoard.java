@@ -29,7 +29,7 @@ public class ParentsBoard extends AppCompatActivity implements intermunicipal{
     SQLiteDatabase db;
 
 
-    Button btnConfig,btnNavigator;
+    Button btnConfig,btnNavigator, button12;
     Intent intent;
     FloatingActionButton newThread;
 
@@ -157,6 +157,11 @@ public class ParentsBoard extends AppCompatActivity implements intermunicipal{
             intent=new Intent(ParentsBoard.this,CreateParentThread.class);
             startActivity(intent);
 
+        });
+        button12.setOnClickListener(v -> {
+            adapter.notifyItemInserted(adapter.getItemCount());
+            adapter.notifyDataSetChanged();
+            listamodelo.clear();
         });
 
     }
