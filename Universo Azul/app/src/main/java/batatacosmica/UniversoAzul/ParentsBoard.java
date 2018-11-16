@@ -121,15 +121,10 @@ public class ParentsBoard extends AppCompatActivity implements intermunicipal{
         model viadinho = (model) object;
         Integer Cooc = viadinho.getCod_Thread();
         String User=viadinho.getUsername();
-        Bitmap bitmap=viadinho.getImage();
         Intent intent = new Intent(this,InsideTheThread.class);
         Bundle b= new Bundle();
         b.putInt("Cod",Cooc);
         b.putString("User",User);
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-        byte[] byteArray = stream.toByteArray();
-        b.putByteArray("Imagem",byteArray);
         intent.putExtras(b);
         startActivity(intent);
     }
