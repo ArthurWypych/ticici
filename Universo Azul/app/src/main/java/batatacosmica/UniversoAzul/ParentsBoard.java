@@ -153,6 +153,11 @@ public class ParentsBoard extends AppCompatActivity implements intermunicipal{
             startActivity(intent);
 
         });
+        //button12.setOnClickListener(v -> {
+            //adapter.notifyItemInserted(adapter.getItemCount());
+            //adapter.notifyDataSetChanged();
+            //listamodelo.clear();
+        //});
 
     }
 }
