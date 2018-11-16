@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class InsideTheThread extends AppCompatActivity {
 
-    Cursor cursor, cursorImagem, cursorUser;
+    Cursor cursor, cursorUser;
     DbHelper mDbHelper;
     SQLiteDatabase db;
 
@@ -38,11 +38,9 @@ public class InsideTheThread extends AppCompatActivity {
         db=mDbHelper.getWritableDatabase();
         cursor=db.rawQuery("SELECT Titulo,Comentario,Time,Imagem FROM Threads WHERE Cod_Thread="+Cod_Thread,null);
         cursorUser=db.rawQuery("SELECT Username FROM Users WHERE Username='"+User+"'",null);
-        cursorImagem=db.rawQuery("SELECT Imagem FROM Threads WHERE Cod_Thread="+Cod_Thread,null);
         cursor.moveToFirst();
-        cursorImagem.moveToFirst();
         cursorUser.moveToFirst();
-        if(cursor!=null && cursorUser!=null && cursorImagem !=null && cursorImagem.moveToFirst() && cursor.moveToFirst() && cursorUser.moveToFirst()) {
+        if(cursor!=null && cursorUser!=null  && cursor.moveToFirst() && cursorUser.moveToFirst()) {
             do {
                 tvTitulo.setText(cursor.getString(cursor.getColumnIndex("Titulo")));
                 tvComment.setText(cursor.getString(cursor.getColumnIndex("Comentario")));
@@ -51,7 +49,7 @@ public class InsideTheThread extends AppCompatActivity {
                 Bitmap ImagemReal=BitmapFactory.decodeByteArray(imagem, 0, imagem.length);
                 imageView.setImageBitmap(ImagemReal);
                 tvUsername.setText(cursorUser.getString(cursorUser.getColumnIndex("Username")));
-            }while(cursor.moveToNext() && cursorUser.moveToNext() && cursorImagem.moveToNext());
+            }while(cursor.moveToNext() && cursorUser.moveToNext());
         }
 
     }

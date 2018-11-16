@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -98,7 +99,9 @@ public class CreateParentThread extends AppCompatActivity {
         contentValues.put("Titulo",titulo);
         contentValues.put("Comentario",coment);
         contentValues.put("Tipo_Thread","Parents");
-        contentValues.put("Time",currentTime.toString());
+        SimpleDateFormat df1 = new SimpleDateFormat("dd-MMM-yyyy");
+        String formattedDate1 = df1.format(currentTime);
+        contentValues.put("Time", formattedDate1);
         contentValues.put("Cod_User",CurrentUser.id);
         byte[] data = getBitmapAsByteArray(bitmap);
         contentValues.put("Imagem",data);
