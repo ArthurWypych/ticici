@@ -105,22 +105,22 @@ public class InsideTheThread extends AppCompatActivity {
 
     private void setButtonAndObjects(){
 
-        tvTitulo=findViewById(R.id.textView27);
-        tvUsername=findViewById(R.id.textView28);
-        tvComment=findViewById(R.id.textView29);
-        tvTime=findViewById(R.id.textView30);
-        imageView=findViewById(R.id.imageView14);
-        newPost=findViewById(R.id.floatingActionButton3);
-        tvUser1=findViewById(R.id.textView31);
-        tvUser2=findViewById(R.id.textView32);
-        tvComment1=findViewById(R.id.textView35);
-        tvComment2=findViewById(R.id.textView36);
-        tvTime1=findViewById(R.id.textView33);
-        tvTime2=findViewById(R.id.textView34);
-        image1=findViewById(R.id.imageView15);
-        image2=findViewById(R.id.imageView16);
-        v1=findViewById(R.id.view2);
-        v2=findViewById(R.id.view3);
+        //tvTitulo=findViewById(R.id.textView27);
+        //tvUsername=findViewById(R.id.textView28);
+        //tvComment=findViewById(R.id.textView29);
+        //tvTime=findViewById(R.id.textView30);
+        //imageView=findViewById(R.id.imageView14);
+        //newPost=findViewById(R.id.floatingActionButton3);
+        //tvUser1=findViewById(R.id.textView31);
+        //tvUser2=findViewById(R.id.textView32);
+        //tvComment1=findViewById(R.id.textView35);
+        //tvComment2=findViewById(R.id.textView36);
+        //tvTime1=findViewById(R.id.textView33);
+        //tvTime2=findViewById(R.id.textView34);
+        //image1=findViewById(R.id.imageView15);
+        //image2=findViewById(R.id.imageView16);
+        //v1=findViewById(R.id.view2);
+        //v2=findViewById(R.id.view3);
 
 
 

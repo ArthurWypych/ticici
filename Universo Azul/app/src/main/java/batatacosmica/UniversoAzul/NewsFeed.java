@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class NewsFeed extends AppCompatActivity {
 
-    TextView teste;
+    //TextView teste;
     Button btnConfig,btnNavigator;
     Intent intent;
 
@@ -18,8 +18,8 @@ public class NewsFeed extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_feed);
         getSupportActionBar().hide();
-        teste=findViewById(R.id.textViewTeste);
-        teste.setText(String.valueOf(CurrentUser.id));
+        //teste=findViewById(R.id.textViewTeste);
+        //teste.setText(String.valueOf(CurrentUser.id));
 
         btnConfig=findViewById(R.id.button5);
         btnNavigator=findViewById(R.id.button4);
