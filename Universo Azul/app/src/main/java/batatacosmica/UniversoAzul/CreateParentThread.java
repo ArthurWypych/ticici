@@ -30,7 +30,7 @@ public class CreateParentThread extends AppCompatActivity {
     EditText edtTitulo,edtComent;
     ImageView targetImage;
 
-    DbHelper dbHelper=new DbHelper(this);
+    DbHelper dbHelper;
     SQLiteDatabase db;
 
 
@@ -40,6 +40,8 @@ public class CreateParentThread extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_parent_thread);
         getSupportActionBar().hide();
+
+        dbHelper=new DbHelper(this);
 
         tvUrl=findViewById(R.id.textViewParentUrl);
         btnUpload=findViewById(R.id.buttonParentUpload);

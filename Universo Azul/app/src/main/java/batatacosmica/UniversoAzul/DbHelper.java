@@ -94,8 +94,8 @@ public class DbHelper extends SQLiteOpenHelper {
                 + ComentarioPost + " text not null,"
                 + Cod_ThreadPostFk + " text not null,"
                 + Cod_UserPostFk + " integer not null,"
-                + ThreadTime + " text,"
-                + ThreadImagem + " blob,"
+                + PostTime + " text,"
+                + PostImagem + " blob,"
                 + "Foreign key "+"("+Cod_ThreadPostFk+") REFERENCES Threads(Cod_Thread),"
                 + "Foreign key "+"("+Cod_UserPostFk+") REFERENCES Users(Cod_User)"
                 +")";

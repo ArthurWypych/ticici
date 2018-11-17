@@ -86,7 +86,7 @@ public class ParentsBoard extends AppCompatActivity implements intermunicipal{
 
                 listamodelo.add(viadinho);
                 //adapter.notifyItemInserted(adapter.getItemCount());
-                //adapter.notifyDataSetChanged();
+                adapter.notifyDataSetChanged();
                 //listamodelo.clear();
                 CurrentUser.imageCounter++;
 
