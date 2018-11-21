@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
            }
 
                if(vaiLogar=true){
-                   //Toast.makeText(getBaseContext(),"Usuário ou senha incorretos",Toast.LENGTH_LONG).show();
+                   Toast.makeText(getBaseContext(),"Usuário ou senha incorretos",Toast.LENGTH_LONG).show();
 
                }
 
