@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,9 +27,10 @@ public class InsideTheThread extends AppCompatActivity {
     ImageView imageView,image1,image2;
     FloatingActionButton newPost;
     View v1,v2;
+    ImageButton btnReturn;
 
     Integer Cod_Thread;
-    String User;
+    String User,ReturnHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,8 @@ public class InsideTheThread extends AppCompatActivity {
         Bundle b= getIntent().getExtras();
         Cod_Thread=b.getInt("Cod");
         User=b.getString("User");
+        ReturnHelper=b.getString("ReturnHelper");
+
 
         setButtonAndObjects();
 
@@ -164,6 +168,7 @@ public class InsideTheThread extends AppCompatActivity {
         image2=findViewById(R.id.imageView16);
         v1=findViewById(R.id.view2);
         v2=findViewById(R.id.view3);
+        btnReturn=findViewById(R.id.imageButton3);
 
 
 
@@ -172,8 +177,20 @@ public class InsideTheThread extends AppCompatActivity {
             Bundle bu =new Bundle();
             bu.putInt("Cod",Cod_Thread);
             bu.putString("User", User);
+            bu.putString("ReturnHelper",ReturnHelper);
             intent.putExtras(bu);
             startActivity(intent);
+        });
+
+        btnReturn.setOnClickListener(v->{
+            if(ReturnHelper.equals("a")) {
+                Intent codase = new Intent(this, ParentsBoard.class);
+                startActivity(codase);
+            }
+            else {
+                Intent codase = new Intent(this, ProfessionalsBoard.class);
+                startActivity(codase);
+            }
         });
     }
 

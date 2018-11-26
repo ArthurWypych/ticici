@@ -22,7 +22,7 @@ public class ProfessionalsBoard extends AppCompatActivity implements intermunici
     FloatingActionButton newThread;
 
     DbHelper mDbHelper;
-    Cursor cursor, cursorImagem;
+    Cursor cursor, cursorImagem, cursorUser;
     SQLiteDatabase db;
 
     private RecyclerView mRecyclerView;
@@ -40,7 +40,7 @@ public class ProfessionalsBoard extends AppCompatActivity implements intermunici
         mDbHelper= new DbHelper(this);
         db=mDbHelper.getWritableDatabase();
 
-        cursor=db.rawQuery("SELECT Cod_thread,Titulo,Comentario,Time FROM Threads WHERE Tipo_Thread='Professional' ",null);
+        cursor=db.rawQuery("SELECT Cod_thread,Titulo,Comentario,Time,Cod_User FROM Threads WHERE Tipo_Thread='Professional' ",null);
         cursorImagem=db.rawQuery("SELECT Imagem FROM THREADS WHERE Tipo_Thread='Professional'",null);
         cursorImagem.moveToFirst();
         cursor.moveToFirst();
@@ -55,7 +55,6 @@ public class ProfessionalsBoard extends AppCompatActivity implements intermunici
             //for (int i = 1; i >= cursor.getCount(); i++) {
             do {
                 viadinho.setCod_Thread(cursor.getInt(cursor.getColumnIndex("Cod_Thread")));
-                viadinho.setUsername(CurrentUser.Username);
                 viadinho.setTitulo(cursor.getString(cursor.getColumnIndex("Titulo")));
                 viadinho.setComment(cursor.getString(cursor.getColumnIndex("Comentario")));
                 viadinho.setData(cursor.getString(cursor.getColumnIndex("Time")));
@@ -64,6 +63,13 @@ public class ProfessionalsBoard extends AppCompatActivity implements intermunici
                 Bitmap[] ImagemReal=new Bitmap[10];
                 ImagemReal[CurrentUser.imageCounter] = BitmapFactory.decodeByteArray(imagem, 0, imagem.length);
                 viadinho.setImage(ImagemReal[CurrentUser.imageCounter]);
+                cursorUser=db.rawQuery("SELECT Username FROM Users WHERE Cod_User="+cursor.getInt(cursor.getColumnIndex("Cod_User")),null);
+                cursorUser.moveToFirst();
+                if(cursorUser!=null && cursorUser.moveToFirst()) {
+                    do {
+                        viadinho.setUsername(cursorUser.getString(cursorUser.getColumnIndex("Username")));
+                    }while(cursorUser.moveToNext());
+                }
 
 
 
@@ -134,6 +140,7 @@ public class ProfessionalsBoard extends AppCompatActivity implements intermunici
         Bundle b= new Bundle();
         b.putInt("Cod",Cooc);
         b.putString("User",User);
+        b.putString("ReturnHelper","b");
         intent.putExtras(b);
         startActivity(intent);
     }

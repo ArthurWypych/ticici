@@ -30,7 +30,7 @@ public class CreatePost extends AppCompatActivity {
     ImageView targetImage;
 
     Integer Cod;
-    String User;
+    String User,ReturnHelper;
 
     DbHelper dbHelper;
     SQLiteDatabase db;
@@ -46,6 +46,7 @@ public class CreatePost extends AppCompatActivity {
         Bundle b = getIntent().getExtras();
         Cod = b.getInt("Cod");
         User=b.getString("User");
+        ReturnHelper=b.getString("ReturnHelper");
 
         setObj();
         setButtons();
@@ -105,6 +106,7 @@ public class CreatePost extends AppCompatActivity {
             Bundle b= new Bundle();
             b.putInt("Cod",Cod);
             b.putString("User",User);
+            b.putString("ReturnHelper",ReturnHelper);
             i.putExtras(b);
             startActivity(i);
 
